@@ -43,6 +43,7 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState>  {
       final article = await _dataSource.addTask(articleee);
 
       if (article) {
+        getArticleEvent();
         emit(ArticleSuccessState(data: true));
       } else {
         emit(ArticleSuccessState(data: false));

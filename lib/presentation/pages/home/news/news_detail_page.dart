@@ -155,9 +155,6 @@ class _DetailCharactersPageState extends State<DetailNewsDetailPage> {
                   widget.articleModel!.url.toString() ?? "no",
                   widget.articleModel!.urlToImage.toString() ?? ""));
                   showModalAddArticleSQL(context, "Satisfactorio", "Se guardo la noticia correctamente");
-
-
-
               articleBloc.add(GetArticleEvent());
             });
           },

@@ -94,20 +94,11 @@ class _NewsSavePageState extends State<NewsSavePage> {
                 return Center(
                     child: Container(
                   margin: EdgeInsets.only(top: 90),
-                  child: Column(
-                    children: [
-                      Image(
-                        image: AssetImage('assets/cero-items.png'),
-                        width: 140,
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      const Text(
-                        "No se encontró ninguna noticas",
-                        style: TextStyle(fontSize: 16),
-                      )
-                    ],
+                  child: const Text(
+                        "No tienes noticias guardada",
+                        style: TextStyle(fontSize: 20, color: colorThree),
+                      
+                    
                   ),
                 ));
               }
