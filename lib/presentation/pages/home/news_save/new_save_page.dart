@@ -16,11 +16,7 @@ class _NewsSavePageState extends State<NewsSavePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    articleBloc = BlocProvider.of<ArticleBloc>(context);
-     articleBloc.add(
-         AddArticleEvent("MARIO FER", "TITLE", "description", "url", "urlToImage"));
-
-          articleBloc.add(GetArticleEvent());
+      articleBloc = BlocProvider.of<ArticleBloc>(context);
   }
 
   @override

@@ -27,3 +27,25 @@ void showModalConnecty(BuildContext context) {
         );
       });
 }
+
+
+void showModalAddArticleSQL(BuildContext context, String title, String description) {
+  showCupertinoDialog(
+      context: context,
+      builder: (_) {
+        return CupertinoAlertDialog(
+          title: Text(title),
+          content: Text( description),
+          actions: [
+            CupertinoDialogAction(
+              isDestructiveAction: true,
+              child: Text(
+                "Cerrar",
+                style: TextStyle(color: Colors.blue),
+              ),
+              onPressed: () => {Navigator.pop(context)}, 
+            )
+          ],
+        );
+      });
+}

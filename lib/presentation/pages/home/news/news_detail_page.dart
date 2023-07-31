@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tareas/domain/models/news_model.dart';
 import 'package:tareas/presentation/utils/colors.dart';
+import 'package:tareas/presentation/widgets/validate.dart';
+
+import '../../../blocs/articless/article_bloc.dart';
 
 class DetailNewsDetailPage extends StatefulWidget {
   final Article? articleModel;
@@ -12,6 +16,15 @@ class DetailNewsDetailPage extends StatefulWidget {
 }
 
 class _DetailCharactersPageState extends State<DetailNewsDetailPage> {
+  late ArticleBloc articleBloc;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    articleBloc = BlocProvider.of<ArticleBloc>(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +45,8 @@ class _DetailCharactersPageState extends State<DetailNewsDetailPage> {
               _image(context),
               _textName(),
               _textDescription(),
-              _textOptions()
+              _textOptions(),
+              _button()
             ],
           ),
         ));
@@ -123,5 +137,41 @@ class _DetailCharactersPageState extends State<DetailNewsDetailPage> {
           ),
           const SizedBox(height: 10),
         ]));
+  }
+
+  Widget _button() {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+      child: SizedBox(
+        width: double.infinity,
+        height: MediaQuery.of(context).size.height * 0.05,
+        child: ElevatedButton(
+          onPressed: () {
+            setState(()async {
+              articleBloc.add(AddArticleEvent(
+                  widget.articleModel!.author.toString(),
+                  widget.articleModel!.title ?? "no",
+                  widget.articleModel!.description ?? "no",
+                  widget.articleModel!.url.toString() ?? "no",
+                  widget.articleModel!.urlToImage.toString() ?? ""));
+                  showModalAddArticleSQL(context, "Satisfactorio", "Se guardo la noticia correctamente");
+
+
+
+              articleBloc.add(GetArticleEvent());
+            });
+          },
+          style: ElevatedButton.styleFrom(
+            primary: colorPrimary,
+            onPrimary: colorThree,
+            elevation: 8,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
+          child: Text('Guardar noticias', style: TextStyle(fontSize: 16)),
+        ),
+      ),
+    );
   }
 }

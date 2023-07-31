@@ -15,3 +15,12 @@ class ArticleLoaded extends ArticleState {
 
   ArticleLoaded(this.article);
 }
+
+class ArticleSuccessState extends ArticleState {
+  final bool data;
+
+  ArticleSuccessState({required this.data});
+
+  @override
+  List<Object> get props => [data];
+}

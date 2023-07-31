@@ -2,8 +2,6 @@ import 'package:sqflite/sqflite.dart';
 import 'package:tareas/domain/models/news_model.dart';
 
 class TaskDataSource {
-
-  
   Database? _database;
 
   Future<Database?> get database async {
@@ -45,9 +43,15 @@ class TaskDataSource {
     );
   }
 
-  Future<void> addTask(Article article) async {
+  Future<bool> addTask(Article article) async {
     final db = await database;
-    await db!.insert('article', article.toMap(),
+    final aux = await db!.insert('article', article.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace);
+
+    if (aux != -1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
