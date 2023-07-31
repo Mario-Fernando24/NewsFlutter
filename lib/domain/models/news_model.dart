@@ -43,6 +43,17 @@ class Article {
         "publishedAt": publishedAt?.toIso8601String(),
         "content": content,
       };
+
+       // Método para convertir un objeto Article en un mapa
+  Map<String, dynamic> toMap() {
+    return {
+        "author": author == null ? null : author,
+        "title": title,
+        "description": description,
+        "url": url,
+        "urlToImage": urlToImage,
+    };
+  }
 }
 
 class Source {

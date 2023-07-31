@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tareas/constants/constant.dart';
 import 'package:tareas/domain/models/news_model.dart';
-import 'package:tareas/presentation/blocs/connecty/connecty/connecty_bloc.dart';
+import 'package:tareas/presentation/blocs/connecty/connecty_bloc.dart';
 import 'package:tareas/presentation/blocs/news/news_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tareas/presentation/pages/home/news/news_detail_page.dart';

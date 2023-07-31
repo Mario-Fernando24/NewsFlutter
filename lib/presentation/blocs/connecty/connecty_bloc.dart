@@ -5,7 +5,8 @@ import 'package:equatable/equatable.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../widgets/validate.dart';
+import '../../widgets/validate.dart';
+
 
 part 'connecty_event.dart';
 part 'connecty_state.dart';

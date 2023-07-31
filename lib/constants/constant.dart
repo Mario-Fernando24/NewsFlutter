@@ -5,6 +5,8 @@ class AppConstants {
   static const String newsSavePage = 'newSave';
   static const String detailNewPage = 'detailNewPage';
 
+  
+
   //Endpoind
 
   static const String UrlNoticias = 'https://newsapi.org/v2';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tareas/presentation/blocs/connecty/connecty/connecty_bloc.dart';
 import 'package:tareas/presentation/pages/home/news/news_page.dart';
 import 'package:tareas/presentation/pages/home/news_save/new_save_page.dart';
 import 'package:tareas/presentation/utils/colors.dart';
 
+import '../blocs/connecty/connecty_bloc.dart';
 import '../utils/custom_animated_bottom_bar.dart';
 
 class HomePageNews extends StatefulWidget {
