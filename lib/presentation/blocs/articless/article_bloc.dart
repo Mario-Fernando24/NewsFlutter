@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,21 +12,19 @@ part 'article_state.dart';
 
 class ArticleBloc extends Bloc<ArticleEvent, ArticleState>  {
   final TaskDataSource _dataSource = TaskDataSource();
+   final StreamController<List<Article>> _newSaveController =
+      StreamController<List<Article>>.broadcast();
+
+  Stream<List<Article>> get newSaveController => _newSaveController.stream;
 
   ArticleBloc() : super(ArticleInitial()) {
     on<AddArticleEvent>(_addArticleEvent);
-    on<GetArticleEvent>(_getArticleEvent);
   }
 
-  void _getArticleEvent(GetArticleEvent event, emit) async {
+  void getArticleEvent() async {
     try {
       final article = await _dataSource.getAllTasks();
-      print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-      for (var element in article) {
-        print(element.author);
-      }
-
-      print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+      _newSaveController.add(article);
     } catch (error) {
       print(error.toString());
     }
@@ -50,5 +50,9 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState>  {
     } catch (error) {
       print(error.toString());
     }
+  }
+
+   void dispose() {
+    _newSaveController.close();
   }
 }
