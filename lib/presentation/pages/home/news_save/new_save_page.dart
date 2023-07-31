@@ -117,7 +117,7 @@ class _NewsSavePageState extends State<NewsSavePage> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: GestureDetector(
-        onTap: () => Navigator.pushNamed(context, AppConstants.detailNewPage,
+        onTap: () => Navigator.pushNamed(context, AppConstants.detailNewDetailSavePage,
             arguments: news),
         child: Card(
           shape:

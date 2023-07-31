@@ -4,7 +4,7 @@ class AppConstants {
   static const String newsPage = 'new';
   static const String newsSavePage = 'newSave';
   static const String detailNewPage = 'detailNewPage';
-
+ static const String detailNewDetailSavePage = 'detailNewDetailSavePage';
   
 
   //Endpoind

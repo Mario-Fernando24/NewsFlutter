@@ -3,6 +3,7 @@ import 'package:tareas/constants/constant.dart';
 import 'package:tareas/domain/models/news_model.dart';
 import 'package:tareas/presentation/pages/home/news/news_detail_page.dart';
 import 'package:tareas/presentation/pages/home/news/news_page.dart';
+import 'package:tareas/presentation/pages/home/news_save/new_save_detail.dart';
 import 'package:tareas/presentation/pages/home/news_save/new_save_page.dart';
 import 'package:tareas/presentation/pages/home_page.dart';
 
@@ -17,5 +18,10 @@ final Map<String, Widget Function(BuildContext)> appRoutes = {
         ModalRoute.of(context)!.settings.arguments as Article;
     return DetailNewsDetailPage(articleModel: articleModel);
   },
-  
+
+  AppConstants.detailNewDetailSavePage: (context) {
+    final Article articleModel =
+        ModalRoute.of(context)!.settings.arguments as Article;
+    return DetailNewSaveDetailPage(articleModel: articleModel);
+  },
 };
